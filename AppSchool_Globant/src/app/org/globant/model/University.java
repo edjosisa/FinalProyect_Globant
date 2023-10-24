@@ -36,6 +36,39 @@ public class University {
         tpList.add(teacherPartTime);
     }
 
+    // Métodos getters y setters
+    public ArrayList<Student> getsList() {
+        return sList;
+    }
+
+    public void setsList(ArrayList<Student> sList) {
+        this.sList = sList;
+    }
+
+    public ArrayList<Subject> getSuList() {
+        return suList;
+    }
+
+    public void setSuList(ArrayList<Subject> suList) {
+        this.suList = suList;
+    }
+
+    public ArrayList<TeacherFullTime> getTfList() {
+        return tfList;
+    }
+
+    public void setTfList(ArrayList<TeacherFullTime> tfList) {
+        this.tfList = tfList;
+    }
+
+    public ArrayList<TeacherPartTime> getTpList() {
+        return tpList;
+    }
+
+    public void setTpList(ArrayList<TeacherPartTime> tpList) {
+        this.tpList = tpList;
+    }
+
     /**
      * La función busca un estudiante en una lista de estudiantes por su ID y
      * devuelve el objeto de estudiante.
