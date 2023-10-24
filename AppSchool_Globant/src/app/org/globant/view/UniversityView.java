@@ -26,7 +26,7 @@ public class UniversityView {
         System.out.println("3. Create a new student");
         System.out.println("4. Create a new class");
         System.out.println("5. List all classes for a given student");
-        System.out.println("Exit");
+        System.out.println("6. Exit");
         System.out.println("Enter your choice");
     }
 
