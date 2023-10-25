@@ -63,12 +63,14 @@ public class UniversityView {
             ArrayList<TeacherPartTime> teacherPartTimes) {
 
         System.out.println("Teacher full time: ");
+        // Reiniciar el contador a 0 cuando vaya a imprimir los profesores part time
         int count = 0;
         for (TeacherFullTime teacherFullTime : teacherFullTimes) {
             count++;
             System.out.println(
                     count + ". Name: " + teacherFullTime.getName() + " Salary: " + teacherFullTime.getSalary());
         }
+        // Falta colocar el sout de Teacher part time
         for (TeacherPartTime teacherPartTime : teacherPartTimes) {
             count++;
             System.out.println(
@@ -100,6 +102,8 @@ public class UniversityView {
      *
      * @param subjects Una ArrayList de objetos SUbject.
      */
+    // falta implementar el submenú para mostrar el profesor de la materia y los
+    // estudiantes.
     public void printInfoClass(ArrayList<Subject> subjects) {
         int count = 0;
         System.out.println("Information class");
@@ -128,6 +132,7 @@ public class UniversityView {
      *         estudiante proporcionado.
      * 
      */
+    // falta colocar un sc.nextLine() para consumir el caracter de la nueva línea.
     public Student createStudent() {
         System.out.println("Enter student Id: ");
         int id = sc.nextInt();
