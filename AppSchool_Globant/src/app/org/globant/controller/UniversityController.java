@@ -25,6 +25,9 @@ public class UniversityController {
                     break;
                 case 2:
                     view.printAllClasses(model.getSuList());
+                    view.showSubMenu();
+                    int choice1 = view.getInput();
+                    UniversityView.printInfoClass(model.getSuList(), choice1);
                     break;
                 case 3:
                     Student newStudent = view.createStudent();
@@ -38,7 +41,7 @@ public class UniversityController {
                     int studentId = view.StudentId();
                     Student student = model.findStudentById(studentId);
                     if (student != null) {
-                        view.showClassesByStudent(model.findClassByStudent(studentId));
+                        view.showClassesByStudent(model.findClassByStudent(studentId), student);
                     } else {
                         System.out.println("Student not found");
                     }
