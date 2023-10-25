@@ -70,7 +70,8 @@ public class UniversityView {
             System.out.println(
                     count + ". Name: " + teacherFullTime.getName() + " Salary: " + teacherFullTime.getSalary());
         }
-        // Falta colocar el sout de Teacher part time
+        count = 0;
+        System.out.println("Teacher part time: ");
         for (TeacherPartTime teacherPartTime : teacherPartTimes) {
             count++;
             System.out.println(
@@ -136,6 +137,7 @@ public class UniversityView {
     public Student createStudent() {
         System.out.println("Enter student Id: ");
         int id = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter student name: ");
         String name = sc.nextLine();
         System.out.println("Enter student age: ");
@@ -167,6 +169,7 @@ public class UniversityView {
             count++;
             System.out.println(count + ". " + teacherFullTime.getName());
         }
+        count = 0;
         System.out.println("Teacher Part Time");
         for (TeacherPartTime teacherPartTime : teacherPartTimes) {
             count++;
@@ -275,8 +278,9 @@ public class UniversityView {
      *
      * @param subjects Una ArrayList de objetos Subject.
      */
-    public void showClassesByStudent(ArrayList<Subject> subjects) {
+    public void showClassesByStudent(ArrayList<Subject> subjects, Student student) {
         int count = 0;
+        System.out.println("Student " + student.getName());
         for (Subject subject : subjects) {
             count++;
             System.out.println(count + ". Name: " + subject.getName() + " Classroom: " + subject.getClassroom());
