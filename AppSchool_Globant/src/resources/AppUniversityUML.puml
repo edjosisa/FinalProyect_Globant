@@ -1,0 +1,100 @@
+@startuml University
+
+left to right direction 
+
+skinparam classAttributeIconSize 0
+
+
+
+package app.org.globant.model #0000FF{
+
+    class Person{
+        # name: String
+        # id: int
+        + Person(name: String, id: int)
+
+    }
+    Student--|>Person
+    class Student{
+        - age: int
+        +Student(name: String, id: int, age: int)
+
+        
+    }
+    TeacherFullTime --|>Person
+    class TeacherFullTime{
+        - salary: double
+        - experienceYears: int
+        + TeacherFullTime(name: String, id: int, salary: double, experienceYears: int)
+        + calculatedSalary(): double
+    }
+    TeacherPartTime--|> Person
+    class TeacherPartTime{
+        - salary: double
+        - activeHours: int
+        + TeacherPartTime(name: String, id: int, salary: double, activeHours: int)
+        + calculatedSalary(): double
+
+    }
+    class Subject{
+        - name: String
+        - classroom: String
+        - sList:ArrayList<Student>
+        - teacherFullTime: TeacherFullTime
+        - teacherPartTime: TeacherPartTime
+        + Subject(name:String,classroom:String)
+        + addStudent(student:Student): void
+
+    }
+    class University{
+        - sList: ArrayList<Student>
+        - suList: ArrayList<Subject>
+        - tfList: ArrayList<TeacherFullTime>
+        - tpList: ArrayList<TeacherPartTime>
+        + University()
+        + addStudent(student: Student): void
+        + addSubject(subjectt: Subject): void
+        + addTeacherFt(teacherFullTime: TeacherFullTime): void
+        + addTeacherPT(teacherPartTime: TeacherPartTime): void
+        + findStudentById(id: int): Student
+        + findClassByStudent(id: int):ArrayList<Subject>
+    }
+
+}
+
+package app.org.globant.view #FFA500{
+    class UniversityView{
+        - sc: Scanner
+        + UniversityView()
+        + showMenu(): void
+        + showSubMenu():void
+        + getInput(): int
+        + printAllProfessors(teacherFullTimes: ArrayList<TeacherFullTime>,teacherPartTimes: ArrayList<TeacherPartTime>): void
+        + printAllClasses(subjects: ArrayList<Subject>): void
+        + {static} printInfoClass(subjects: ArrayList<Subject>,choice: int): void
+        + createStudent():Student
+        + choiceTeacher(teacherFullTimes: ArrayList<TeacherFullTime>,  teacherPartTimes: ArrayList<TeacherPartTime>,subject: Subject): void
+        + choiceStudents(students: ArrayList<Student>, subject: Subject): void
+        + createClass(teacherFullTimes: ArrayList<TeacherFullTime>,teacherPartTimes: ArrayList<TeacherPartTime>, students: ArrayList<Student>): Subject
+        + StudentId(): int
+        showClassesByStudent(subjects: ArrayList<Subject>, student: Student): void
+    }
+}
+
+package app.org.globant.controller #FFFF00{
+    class UniversityController{
+        - model: University
+        - view: UniversityView
+        + UniversityController(model: University, view: UniversityView)
+        + run(): void
+    }
+}
+
+class Main{
+    + {static} main(args: String[]): void
+}
+
+
+
+
+@enduml
