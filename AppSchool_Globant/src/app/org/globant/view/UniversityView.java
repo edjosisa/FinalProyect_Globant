@@ -66,16 +66,18 @@ public class UniversityView {
         // Reiniciar el contador a 0 cuando vaya a imprimir los profesores part time
         int count = 0;
         for (TeacherFullTime teacherFullTime : teacherFullTimes) {
+            String salary = String.format("%.2f", teacherFullTime.calculatedSalary());
             count++;
             System.out.println(
-                    count + ". Name: " + teacherFullTime.getName() + " Salary: " + teacherFullTime.getSalary());
+                    count + ". Name: " + teacherFullTime.getName() + " Salary: $" + salary);
         }
         count = 0;
         System.out.println("Teacher part time: ");
         for (TeacherPartTime teacherPartTime : teacherPartTimes) {
+            String salary = String.format("%.2f", teacherPartTime.calculatedSalary());
             count++;
             System.out.println(
-                    count + ". Name: " + teacherPartTime.getName() + " Salary: " + teacherPartTime.getSalary());
+                    count + ". Name: " + teacherPartTime.getName() + " Salary: $" + salary);
         }
 
     }
@@ -87,12 +89,12 @@ public class UniversityView {
      * @param subjects Una ArrayList de objetos Subject.
      */
     public void printAllClasses(ArrayList<Subject> subjects) {
-
+        int count = 0;
         System.out.println("All classes: ");
 
         for (Subject subject : subjects) {
-
-            System.out.println("Class: " + subject.getName() + " Classroom: " + subject.getClassroom());
+            count++;
+            System.out.println(count + ". " + subject.getName());
         }
     }
 
@@ -105,23 +107,21 @@ public class UniversityView {
      */
     // falta implementar el submenú para mostrar el profesor de la materia y los
     // estudiantes.
-    public void printInfoClass(ArrayList<Subject> subjects) {
-        int count = 0;
-        System.out.println("Information class");
+    public static void printInfoClass(ArrayList<Subject> subjects, int choice) {
 
-        for (Subject subject : subjects) {
-            System.out.println("Class name: " + subject.getName());
-            System.out.println("Classroom: " + subject.getClassroom());
-            if (subject.getTeacherFullTime() != null) {
-                System.out.println("Teacher name: " + subject.getTeacherFullTime());
-            } else {
-                System.out.println("Teacher name: " + subject.getTeacherPartTime());
-            }
-            System.out.println("Students: ");
-            for (Student student : subject.getsList()) {
-                count++;
-                System.out.println(count + ". " + student.getName());
-            }
+        System.out.println("Information class");
+        System.out.println("Classroom: " + subjects.get(choice - 1).getClassroom());
+        if (subjects.get(choice - 1).getTeacherFullTime() != null) {
+
+            System.out.println("Teacher: " + subjects.get(choice - 1).getTeacherFullTime().getName());
+        } else {
+            System.out.println("Teacher: " + subjects.get(choice - 1).getTeacherPartTime().getName());
+        }
+        System.out.println("Students:");
+        int count = 0;
+        for (Student student : subjects.get(choice - 1).getsList()) {
+            count++;
+            System.out.println(count + ". " + student.getName());
         }
     }
 
