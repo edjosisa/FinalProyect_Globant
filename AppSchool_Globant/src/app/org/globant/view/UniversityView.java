@@ -20,19 +20,19 @@ public class UniversityView {
     // Método para mostrar el menú de la app
     public void showMenu() {
 
-        System.out.println("University classes tracking system");
+        System.out.println("\nUniversity classes tracking system");
         System.out.println("1. Print all professors");
         System.out.println("2. Print all classes");
         System.out.println("3. Create a new student");
         System.out.println("4. Create a new class");
         System.out.println("5. List all classes for a given student");
         System.out.println("6. Exit");
-        System.out.println("Enter your choice");
+        System.out.println("Enter your choice:");
     }
 
     // método para el submenú
     public void showSubMenu() {
-        System.out.println("Choice a class: ");
+        System.out.println("Choice a class:");
 
     }
 
@@ -62,7 +62,7 @@ public class UniversityView {
     public void printAllProfessors(ArrayList<TeacherFullTime> teacherFullTimes,
             ArrayList<TeacherPartTime> teacherPartTimes) {
 
-        System.out.println("Teacher full time: ");
+        System.out.println("\nTeacher full time: ");
         // Reiniciar el contador a 0 cuando vaya a imprimir los profesores part time
         int count = 0;
         for (TeacherFullTime teacherFullTime : teacherFullTimes) {
@@ -72,7 +72,7 @@ public class UniversityView {
                     count + ". Name: " + teacherFullTime.getName() + " Salary: $" + salary);
         }
         count = 0;
-        System.out.println("Teacher part time: ");
+        System.out.println("\nTeacher part time: ");
         for (TeacherPartTime teacherPartTime : teacherPartTimes) {
             String salary = String.format("%.2f", teacherPartTime.calculatedSalary());
             count++;
@@ -90,7 +90,7 @@ public class UniversityView {
      */
     public void printAllClasses(ArrayList<Subject> subjects) {
         int count = 0;
-        System.out.println("All classes: ");
+        System.out.println("\nAll classes: ");
 
         for (Subject subject : subjects) {
             count++;
@@ -160,24 +160,24 @@ public class UniversityView {
      * @param sujeto           El objeto sujeto representa una materia a la que se
      *                         le debe asignar un maestro.
      */
-    public void choiceTeacher(ArrayList<TeacherFullTime> teacherFullTimes, ArrayList<TeacherPartTime> teacherPartTimes,
+    private void choiceTeacher(ArrayList<TeacherFullTime> teacherFullTimes, ArrayList<TeacherPartTime> teacherPartTimes,
             Subject subject) {
         int count = 0;
         System.out.println("Existing teacher");
-        System.out.println(" Teacher Full Time");
+        System.out.println("\nTeacher Full Time");
         for (TeacherFullTime teacherFullTime : teacherFullTimes) {
             count++;
             System.out.println(count + ". " + teacherFullTime.getName());
         }
         count = 0;
-        System.out.println("Teacher Part Time");
+        System.out.println("\nTeacher Part Time");
         for (TeacherPartTime teacherPartTime : teacherPartTimes) {
             count++;
             System.out.println(count + ". " + teacherPartTime.getName());
         }
-        System.out.println("Choice type teacher: ");
+        System.out.println("Choice type teacher(full time or part time): ");
         String typeTeacher = sc.nextLine().toLowerCase().replace(" ", "");
-        System.out.println("Choice the number: ");
+        System.out.println("Choice the number:");
         int choiceTeacher = sc.nextInt();
         sc.nextLine();
         if (typeTeacher.equals("parttime")) {
@@ -199,13 +199,13 @@ public class UniversityView {
      *                 lista de students existentes.
      * @param subject  El parámetro subject es una instancia de la clase Subject.
      */
-    public void choiceStudents(ArrayList<Student> students, Subject subject) {
+    private void choiceStudents(ArrayList<Student> students, Subject subject) {
         int count = 0;
         boolean condition = false;
         System.out.println("Existing Student");
         for (Student student : students) {
             count++;
-            System.out.println(count + ". Name: " + student.getName());
+            System.out.println(count + ". " + student.getName());
         }
 
         do {
@@ -283,7 +283,7 @@ public class UniversityView {
         System.out.println("Student " + student.getName());
         for (Subject subject : subjects) {
             count++;
-            System.out.println(count + ". Name: " + subject.getName() + " Classroom: " + subject.getClassroom());
+            System.out.println(count + ". Class name: " + subject.getName() + " Classroom: " + subject.getClassroom());
         }
     }
 
