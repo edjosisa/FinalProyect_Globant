@@ -1,25 +1,18 @@
 package app.org.globant.model;
 
-/**
- * @author Edwin Sisalema
- */
-
-/**
- * La clase Estudiante es una subclase de la clase Persona.
- */
 public class Student extends Person {
 
     // variable
     private int age;
 
     /**
+     * Constructor para la clase Estudiante.
      * 
      * @param name nombre del estudiante
      * @param id   identificador del estudiante
      * @param age  edad del estudiante
      */
 
-    // un constructor para la clase Estudiante.
     public Student(String name, int id, int age) {
         super(name, id);
         this.age = age;

@@ -19,14 +19,13 @@ public class Subject {
      * @param classroom Salon de clase
      */
 
-    // Método constructor para la clase de la materia e inicialización de la lista.
     public Subject(String name, String classroom) {
         this.name = name;
         this.classroom = classroom;
         sList = new ArrayList<>();
     }
 
-    // Métodos getter y setter
+    // Getters
 
     public String getName() {
         return name;
@@ -40,16 +39,8 @@ public class Subject {
         return classroom;
     }
 
-    public void setClassroom(String classroom) {
-        this.classroom = classroom;
-    }
-
     public ArrayList<Student> getsList() {
         return sList;
-    }
-
-    public void setsList(ArrayList<Student> sList) {
-        this.sList = sList;
     }
 
     public TeacherFullTime getTeacherFullTime() {
