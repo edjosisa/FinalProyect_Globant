@@ -9,18 +9,15 @@ import app.org.globant.view.UniversityView;
 
 public class Main {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         University model = new University();
         UniversityView view = new UniversityView();
         UniversityController controller = new UniversityController(model, view);
 
-        Person teacherFullTime = new TeacherFullTime("Ricardo", 1, 12000, 3);
-        Person teacherFullTime1 = new TeacherFullTime("Eduardo", 2, 10000, 4);
-        Person teacherPartTime = new TeacherPartTime("Domenica", 1, 30, 30);
-        Person teacherPartTime1 = new TeacherPartTime("Talia", 2, 40, 25);
+        Person teacherFullTime = new TeacherFullTime("Ricardo", 3);
+        Person teacherFullTime1 = new TeacherFullTime("Eduardo", 4);
+        Person teacherPartTime = new TeacherPartTime("Domenica", 30);
+        Person teacherPartTime1 = new TeacherPartTime("Talia", 25);
 
         Person student = new Student("Jose", 1, 18);
         Person student1 = new Student("Gabriela", 2, 18);
