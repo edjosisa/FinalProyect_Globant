@@ -27,11 +27,11 @@ public class StudentController {
             System.out.println("Enter student Id: ");
             id = sc.nextInt();
             sc.nextLine();
+            condition = true;
             for (Student student : students) {
                 if (student.getId() == id) {
                     System.out.println("Id is already in use by another student. Please enter a different ID.");
                     condition = false;
-                } else {
                     break;
                 }
             }
