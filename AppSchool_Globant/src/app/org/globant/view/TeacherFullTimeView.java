@@ -1,10 +1,10 @@
 package app.org.globant.view;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 import app.org.globant.controller.TeacherFTController;
-import app.org.globant.model.Subject;
+
 import app.org.globant.model.TeacherFullTime;
 
 public class TeacherFullTimeView {
@@ -18,6 +18,5 @@ public class TeacherFullTimeView {
         TeacherFTController.findTeachersFT(teacherFullTimes);
 
     }
-
 
 }

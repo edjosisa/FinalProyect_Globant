@@ -1,10 +1,10 @@
 package app.org.globant.view;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 import app.org.globant.controller.TeacherPTController;
-import app.org.globant.model.Subject;
+
 import app.org.globant.model.TeacherPartTime;
 
 public class TeacherPartTimeView {
@@ -16,6 +16,5 @@ public class TeacherPartTimeView {
         System.out.println("\nTeacher part time: ");
         TeacherPTController.findTeachersPT(teacherPartTimes);
     }
-
 
 }
