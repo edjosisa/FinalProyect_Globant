@@ -1,7 +1,7 @@
 ---
 title: "University class tracking system"
 author: "Edwin Sisalema"
-date: "27/10/2023"
+date: "29/10/2023"
 ---
 
 # Proyecto Final
@@ -49,18 +49,19 @@ En este paquete se coloca las clases donde se obtiene la información y donde se
 
 - Person.java
 - Student.java
+- Subject.java
+- Teacher.java
 - TeacherFullTime.java
 - TeacherPartTime.java
-- Subject.java
 - University.java
 
-La clase **_Person.java_** la usamos como una clase padre, donde tiene los atributos, métodos y constructores en común de los profesores y los alumnos. En este caso los atributos en común son el Id y el nombre y se utiliza el modificador de acceso `protected`.
+La clase **_Person_** la usamos como una clase padre, donde tiene los atributos, métodos y constructores en común de los profesores y los alumnos. En este caso los atributos en común son el Id y el nombre y se utiliza el modificador de acceso `protected`.
 
-Las clases **_Student.java_** , **_TeacherFullTime.java_** y **_TeacherPartTime.java_** heredan los atributos y los métodos que hay en la clase **_Person.java_**. Luego de que se hereda, se agrega los atributos específicos para cada clase hija. En el caso de **_Person_** se agrega el atributo **age** con modificador de acceso `private` para tener encapsulación de datos.
+Las clases **_Student_** , **_TeacherFullTime_** y **_TeacherPartTime_** heredan los atributos y los métodos que hay en la clase **_Person_**. Luego de que se hereda, se agrega los atributos específicos para cada clase hija. En el caso de **_Person_** se agrega el atributo **age** con modificador de acceso `private` para tener encapsulación de datos.
 
-Mientras que en las clases de los profesores se agregan los atributos correspondientes. Estos son el salario base y dependiendo si es full time o part time se coloca los años de experiencia o las horas que va a trabajar. En el caso de estas clases se crea un método en especifico llamado `calculatedSalary` donde se calcula el salario dependiendo del tipo de profesor.
+Mientras que en las clases de los profesores implementan la interface **_Teacher_**, donde se implementan los atributos correspondientes como es el salario base y el método en común. Este método se calcula el salario dependiendo si es full time o part time se coloca los años de experiencia o las horas que va a trabajar. En el caso de estas clases se crea un método en especifico llamado `calculatedSalary` donde se calcula el salario dependiendo del tipo de profesor.
 
-La clase **_Subject.java_** tiene sus atributos específicos y sus atributos de instanciación. Los atributos de instanciación nos ayuda a colocar un profesor especifico a la clase o materia y a añadir estudiantes a la clase o materia. El método especifico en esta ocasión es `addStudent` donde recibe como atributo un estudiante de tipo **Student** para luego añadir a la lista de estudiantes.
+La clase **_Subject_** tiene sus atributos específicos y sus atributos de instanciación. Los atributos de instanciación nos ayuda a colocar un profesor especifico a la clase o materia y a añadir estudiantes a la clase o materia. El método especifico en esta ocasión es `addStudent` donde recibe como atributo un estudiante de tipo **Student** para luego añadir a la lista de estudiantes.
 
 Para la clase **_University_** es la base del paquete model. Esta clase recibe toda la información que se recolecta de los estudiante, profesores y materias. Aquí se instancia listas de tipo **Student**, **Subject**, **TeacherFullTime** y **TeacherPartTime** para luego usarlas en los métodos donde se añada la información. Estos métodos son `addStudent`, `addSubject`, `addTeacherFT` y `AddTeacherPT` los cuales reciben como atributo el tipo de dato de cada objeto.
 
@@ -69,41 +70,71 @@ El segundo método `findClassByStudent` ayuda a encontrar todas materias en las 
 
 ### Paquete app.org.globant.view
 
-El caso de este paquete solo tiene una clase la cual es **_UniversityView_**. Esta clase tiene todo lo que el usuario ve en la consola.
-Debido que en esta clase se muestra el menú y se pide datos por consola se opta por instanciar la clase **Scanner**. Esta clase tiene métodos para mostrar información por consola como los siguientes métodos:
+- StudentView.java
+- SubjectView.java
+- TeacherFullTimeView.java
+- TeacherPartTimeView.java
+- UniversityView.java
+
+Esta clase tiene todo lo que el usuario ve en la consola.
+
+Para la clase **_StudentView_** tenemos el método `showClassesByStudent` para mostrar las clases en la que un estudiante esta inscrito.
+
+La clase **_SubjectView_** ayuda a mostrar toda la información respecto a las materias disponibles. En esta clase tenemos los siguientes métodos:
+
+`showAllClasses:` Ayuda a mostrar todas las clases que tiene la universidad.
+`showInfoClass:` Muestra la información de la clase seleccionada.
+
+La clase **_TeacherFullTimeView_** y **_TeacherPartTimeView_** muestra la información respecto a los profesores disponible tanto los full time como los de part time. Para esto tenemos los siguientes métodos:
+
+`showAllProfessorsFT:` Muestra la información de cada profesor.
+`showTeacherFT:` Muestra la información de cada profesor para poder elegir a la hora de crear una clase.
+
+La clase **_UniversityView_** nos ayuda a referenciar las demás de la vista para luego ser instanciada en el controlador. Aquí se tiene los siguientes métodos:
 
 - `showMenu:` En este método se muestra el menú principal.
 - `showSubMenu:` Ayuda a pedir una opción, en este caso una materia para obtener la información de esa materia.
 
-- `getInput:` Este método sirve para guardar la opción que el usuario ingresa. Retorna un número de tipo int.
-
-- `printAllProfessors:` Muestra la información de todos los profesores, tanto de full time como de part time.
-
-- `printAllClases:` Imprime todas las clases que existen en la universidad. También sirve como un el sub-menú donde se elige una materia para obtener información.
-
-- `printInfoClass:` Este método muestra la información de la materia, es un método `estático` para ser invocado solo con el nombre de la clase. Es método se ejecuta luego del método **printAllClases** y de **showSubMenu**.
-
-- `createStudent:` No ayuda a solicitar la información del estudiante a registrar para luego retornar dicho estudiante.
-
-- `choiceTeacher:` Ayuda a mostrar los profesores disponibles para poder elegir y luego registrarlo en una materia.
-
-- `choiceStudent:` Ayuda a mostrar los estudiantes para asignarlos a la materia. Como se debe elegir algunos estudiantes se opta por preguntar si desea seguir añadiendo estudiantes.
-
-- `createClass:` Crea la materia, en este método se llama a los métodos **choiceTeacher** y **choiceStudent**.
-
-- `studentId:` Pide la información del Id del estudiante.
-
-- `showClassesByStudent:` Sirve para mostrar todas las clases en las que un estudiante se encuentra registrado.
-
-Todos estos métodos son utilizados en el controlador, donde se conecta con el modelo.
-
 ### Paquete app.org.globant.controller
 
-Este paquete al igual que el paquete de view, solo tiene una sola clase `UniversityController`.
+Este método es la conexión entre el modelo y la vista. Para esto se instancia tanto la clase **University**(modelo) y la clase **UniversityView**(vista).Para esto tenemos las siguiente clases:
 
-Este método es la conexión entre el modelo y la vista. Para esto se instancia tanto la clase **University**(modelo) y la clase **UniversityView**(vista).
+- StudentController.java
+- SubjectController.java
+- TeacherFullTimeController.java
+- TeacherPartTimeController.java
+- UniversityController.java
 
-Aquí solo hay un método especifico que se llama `run`. Este método nos ayuda a entregar información dependiendo de la opción del menú elegida por el usuario.
+Dentro de la clase **_StudentController_** hay 5 métodos:
+
+`findStudentByid:`Ayuda a buscar un estudiante por su _Id_ y dependiendo de ese Id retorna el estudiante correspondiente.
+
+`createStudent:` Ayuda a crear un estudiante.
+
+`choiceStudent:` Sirve para elegir estudiantes para luego ser agregados a una materia.
+
+`StudentId:` Ayuda a obtener el Id ingresado por consola.
+
+`ClassesByStudent:` Ayuda a buscar las clases en la que esta registrado el estudiante.
+
+Para la clase **_SubjectController_** tenemos 5 métodos:
+
+`findClasses:` Ayuda a buscar todas las clases para luego ser mostradas.
+
+`infoClass:` Ayuda obtener la información de la clase seleccionada.
+
+`createClass:` Con este método se puede crear la nueva materia y elegir el estudiante y el profesor.
+
+`findClassByStudent:` Retorna la lista de materias en la que esta inscrito el estudiante.
+
+En las clases de los profesores **_TeacherFTController_** y **_TeacherPTController_** tenemos dos métodos en común:
+`findTeachers*T`: El * indica si es full o part time. Este método ayuda a buscar la información de los profesores.
+`choiceTeacher*T:` Ayuda a elegir un profesor para luego ser añadido a una materia.
+
+La ultima clase es donde se instancia las demás clases del controlador. En este caso el controlador general es la clase **_University_**. Esta clase tiene dos métodos:
+
+`getInput:` El cual ayuda a retornar la opción que el usuario ingreso.
+`run`: Este método nos ayuda a entregar información dependiendo de la opción del menú elegida por el usuario.
 
 ### Main
 
