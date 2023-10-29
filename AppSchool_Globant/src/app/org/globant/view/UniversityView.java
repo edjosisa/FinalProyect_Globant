@@ -13,6 +13,7 @@ public class UniversityView {
         teacherPartTimeView = new TeacherPartTimeView();
     }
 
+    // Getters
     public StudentView getStudentView() {
         return studentView;
     }

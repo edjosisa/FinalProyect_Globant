@@ -7,6 +7,9 @@ import app.org.globant.model.Subject;
 
 public class SubjectView {
 
+    /**
+     * @param subjects Lista de materias
+     */
     public void showAllClasses(ArrayList<Subject> subjects) {
 
         System.out.println("\nAll classes: ");
@@ -14,6 +17,10 @@ public class SubjectView {
 
     }
 
+    /**
+     * @param subjects Lista de materias
+     * @param choice Opción que ingresa el usuario
+     */
     public void showInfoClass(ArrayList<Subject> subjects, int choice) {
 
         System.out.println("Information class");

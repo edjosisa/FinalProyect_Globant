@@ -14,6 +14,10 @@ public class UniversityController {
     private SubjectController subjectController;
     private StudentController studentController;
 
+    /**
+     * @param model Modelo para obtener información
+     * @param view Vista de lo que muestra al usuario
+     */
     public UniversityController(University model, UniversityView view) {
         this.model = model;
         this.view = view;
@@ -22,6 +26,9 @@ public class UniversityController {
 
     }
 
+    /**
+     * @return La opción que el usuario elige.
+     */
     public int getInput() {
         int choice = sc.nextInt();
         sc.nextLine();
@@ -29,6 +36,9 @@ public class UniversityController {
 
     }
 
+    /**
+     * Inicia el programa.
+     */
     public void run() {
         int choice;
         do {

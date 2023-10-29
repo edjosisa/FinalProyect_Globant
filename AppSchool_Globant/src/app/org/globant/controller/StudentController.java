@@ -8,6 +8,11 @@ import app.org.globant.model.Subject;
 
 public class StudentController {
 
+    /**
+     * @param id Identifiacdor único del estudiante
+     * @param sList Lista de materias
+     * @return Una instancia de estudiante
+     */
     public static Student findStudentById(int id, ArrayList<Student> sList) {
 
         for (Student student : sList) {
@@ -19,6 +24,11 @@ public class StudentController {
         return null;
     }
 
+    /**
+     * @param students Lista de estudiantes
+     * @param sc método Scanner
+     * @return Un nuevo estudiante
+     */
     public Student createStudent(ArrayList<Student> students, Scanner sc) {
         boolean condition = false;
         int id = 0;
@@ -44,6 +54,11 @@ public class StudentController {
         return new Student(name, id, age);
     }
 
+    /**
+     * @param students Lista de estudiantes
+     * @param subject Materia donde se agrega al estudiante
+     * @param sc método Scanner
+     */
     public static void choiceStudents(ArrayList<Student> students, Subject subject, Scanner sc) {
         int count = 0;
         boolean condition = false;
@@ -71,6 +86,10 @@ public class StudentController {
         } while (!condition);
     }
 
+    /**
+     * @param sc Método Scanner
+     * @return el identificador único del estudiante
+     */
     public int StudentId(Scanner sc) {
         System.out.println("Enter Student Id: ");
         int id = sc.nextInt();
@@ -78,6 +97,10 @@ public class StudentController {
         return id;
     }
 
+    /**
+     * @param subjects Lista de materias
+     * @param student Estudiante elegido para obtener la información
+     */
     public static void ClassesByStudent(ArrayList<Subject> subjects, Student student) {
         int count = 0;
 

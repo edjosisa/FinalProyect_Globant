@@ -5,11 +5,7 @@ public class TeacherPartTime extends Person implements Teacher {
     // variables
     private int activeHours;
 
-    /**
-     * 
-     * @param name        Nombre del profesor
-     * @param activeHours Hora que trabaja el profesor
-     */
+
 
     public TeacherPartTime(String name, int activeHours) {
         super(name);

@@ -8,6 +8,9 @@ import app.org.globant.model.TeacherFullTime;
 
 public class TeacherFTController {
 
+    /**
+     * @param teacherFullTimes Lista de profesores full time
+     */
     public static void findTeachersFT(ArrayList<TeacherFullTime> teacherFullTimes) {
         int count = 0;
         for (TeacherFullTime teacherFullTime : teacherFullTimes) {
@@ -18,6 +21,11 @@ public class TeacherFTController {
         }
     }
 
+    /**
+     * @param teacherFullTimes Lista de profesores full time
+     * @param subject materia donde se agrega el nuevo profesor
+     * @param sc Método Scanner
+     */
     public static void choiceTeacherFT(ArrayList<TeacherFullTime> teacherFullTimes,
             Subject subject, Scanner sc) {
 

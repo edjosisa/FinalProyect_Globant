@@ -4,10 +4,7 @@ public class TeacherFullTime extends Person implements Teacher {
 
     private int experienceYears;
 
-    /**
-     * @param name            Nombre del profesor
-     * @param experienceYears Años de experiencia
-     */
+
 
     public TeacherFullTime(String name, int experienceYears) {
         super(name);

@@ -9,6 +9,9 @@ import app.org.globant.model.TeacherPartTime;
 
 public class TeacherPTController {
 
+    /**
+     * @param teacherPartTimes Lista de profesores part time.
+     */
     public static void findTeachersPT(ArrayList<TeacherPartTime> teacherPartTimes) {
         int count = 0;
         for (TeacherPartTime teacherPartTime : teacherPartTimes) {
@@ -19,6 +22,11 @@ public class TeacherPTController {
         }
     }
 
+    /**
+     * @param teacherPartTimes Lista de profesores part time.
+     * @param subject materia donde se agrega el nuevo profesor
+     * @param sc Método Scanner
+     */
     public static void choiceTeacherPT(ArrayList<TeacherPartTime> teacherPartTimes,
             Subject subject, Scanner sc) {
 

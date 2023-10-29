@@ -9,6 +9,9 @@ import app.org.globant.model.TeacherFullTime;
 
 public class TeacherFullTimeView {
 
+    /**
+     * @param teacherFullTimes Lista de profesores
+     */
     public void showAllProfessorsFT(ArrayList<TeacherFullTime> teacherFullTimes) {
 
         System.out.println("\nTeacher full time: ");
@@ -16,10 +19,5 @@ public class TeacherFullTimeView {
 
     }
 
-    public void showTeachersFT(ArrayList<TeacherFullTime> teacherFullTimes, Subject subject, Scanner sc) {
 
-        System.out.println("Existing teacher");
-        System.out.println("\nTeacher Full Time");
-        TeacherFTController.choiceTeacherFT(teacherFullTimes, subject, sc);
-    }
 }
