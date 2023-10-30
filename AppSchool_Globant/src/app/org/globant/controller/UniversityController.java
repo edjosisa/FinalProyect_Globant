@@ -59,10 +59,21 @@ public class UniversityController {
                     // view.printAllProfessors(model.getTfList(), model.getTpList());
                     break;
                 case 2:
+                    boolean condition = false;
                     view.getSubjectView().showAllClasses(model.getSuList());
-                    view.showSubMenu();
-                    int choice1 = getInput();
-                    view.getSubjectView().showInfoClass(model.getSuList(), choice1);
+                    do {
+                        view.showSubMenu();
+                        int choice1 = getInput();
+                        if (choice1 <= model.getSuList().size()) {
+                            view.getSubjectView().showInfoClass(model.getSuList(), choice1);
+                            condition = true;
+                        } else {
+                            System.out.println("Invalid range. Please enter a valid option.");
+                            condition = false;
+                        }
+
+                    } while (!condition);
+
                     break;
                 case 3:
                     Student newStudent = studentController.createStudent(model.getsList(), sc);
