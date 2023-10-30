@@ -35,7 +35,7 @@ Para el **Controlador** se creo un clase donde conecta el _Modelo_ y la _Vista_.
 
 ## Diagrama de clase
 
-![Diagrama de clase del proyecto](src/resources/FinalProyect_Globant.png)
+![Diagrama de clase del proyecto](AppSchool_Globant/src/resources/FinalProyect_Globant.png)
 
 Figura 1: Diagrama de clases del proyecto
 
