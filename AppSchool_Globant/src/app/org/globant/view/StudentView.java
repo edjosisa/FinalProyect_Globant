@@ -14,7 +14,7 @@ public class StudentView {
      */
     public void showClassesByStudent(ArrayList<Subject> subjects, Student student) {
 
-        System.out.println("Student");
+        System.out.println("\nStudent");
         StudentController.ClassesByStudent(subjects, student);
     }
 }

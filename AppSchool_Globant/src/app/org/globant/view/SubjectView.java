@@ -22,7 +22,7 @@ public class SubjectView {
      */
     public void showInfoClass(ArrayList<Subject> subjects, int choice) {
 
-        System.out.println("Information class");
+        System.out.println("\nInformation class");
 
         SubjectController.infoClass(subjects, choice);
 

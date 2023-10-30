@@ -54,7 +54,7 @@ public class UniversityView {
 
     // método para el sub-menú
     public void showSubMenu() {
-        System.out.println("Choice a class:");
+        System.out.println("\nChoice a class:");
 
     }
 
