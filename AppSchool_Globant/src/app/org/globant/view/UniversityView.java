@@ -6,11 +6,20 @@ public class UniversityView {
     private TeacherFullTimeView teacherFullTimeView;
     private TeacherPartTimeView teacherPartTimeView;
 
-    public UniversityView() {
+    private static UniversityView instance = null;
+
+    private UniversityView() {
         studentView = new StudentView();
         subjectView = new SubjectView();
         teacherFullTimeView = new TeacherFullTimeView();
         teacherPartTimeView = new TeacherPartTimeView();
+    }
+
+    public static UniversityView getInstance() {
+        if (instance == null) {
+            instance = new UniversityView();
+        }
+        return instance;
     }
 
     // Getters

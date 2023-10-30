@@ -2,12 +2,12 @@ package app.org.globant.view;
 
 import java.util.ArrayList;
 
-
 import app.org.globant.controller.TeacherPTController;
 
 import app.org.globant.model.TeacherPartTime;
 
 public class TeacherPartTimeView {
+
     /**
      * @param teacherPartTimes Lista de profesores part time
      */

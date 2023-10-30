@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class University {
 
+    private static University instance = null;
     // variables de instancia privadas en la clase "Universidad".
 
     private final ArrayList<Student> sList;
@@ -12,11 +13,18 @@ public class University {
     private final ArrayList<TeacherPartTime> tpList;
 
     // Constructor para inicializar las listas
-    public University() {
+    private University() {
         sList = new ArrayList<>();
         suList = new ArrayList<>();
         tfList = new ArrayList<>();
         tpList = new ArrayList<>();
+    }
+
+    public static University getInstance() {
+        if (instance == null) {
+            instance = new University();
+        }
+        return instance;
     }
 
     // Métodos getters

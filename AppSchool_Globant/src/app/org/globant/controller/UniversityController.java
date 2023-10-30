@@ -13,17 +13,25 @@ public class UniversityController {
     private UniversityView view;
     private SubjectController subjectController;
     private StudentController studentController;
+    private static UniversityController instance = null;
 
     /**
      * @param model Modelo para obtener información
-     * @param view Vista de lo que muestra al usuario
+     * @param view  Vista de lo que muestra al usuario
      */
-    public UniversityController(University model, UniversityView view) {
+    private UniversityController(University model, UniversityView view) {
         this.model = model;
         this.view = view;
         subjectController = new SubjectController();
         studentController = new StudentController();
 
+    }
+
+    public static UniversityController getInstance(University model, UniversityView view) {
+        if (instance == null) {
+            instance = new UniversityController(model, view);
+        }
+        return instance;
     }
 
     /**

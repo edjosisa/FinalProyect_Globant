@@ -9,7 +9,7 @@ import app.org.globant.model.Subject;
 public class StudentController {
 
     /**
-     * @param id Identifiacdor único del estudiante
+     * @param id    Identifiacdor único del estudiante
      * @param sList Lista de materias
      * @return Una instancia de estudiante
      */
@@ -26,7 +26,7 @@ public class StudentController {
 
     /**
      * @param students Lista de estudiantes
-     * @param sc método Scanner
+     * @param sc       método Scanner
      * @return Un nuevo estudiante
      */
     public Student createStudent(ArrayList<Student> students, Scanner sc) {
@@ -56,8 +56,8 @@ public class StudentController {
 
     /**
      * @param students Lista de estudiantes
-     * @param subject Materia donde se agrega al estudiante
-     * @param sc método Scanner
+     * @param subject  Materia donde se agrega al estudiante
+     * @param sc       método Scanner
      */
     public static void choiceStudents(ArrayList<Student> students, Subject subject, Scanner sc) {
         int count = 0;
@@ -99,7 +99,7 @@ public class StudentController {
 
     /**
      * @param subjects Lista de materias
-     * @param student Estudiante elegido para obtener la información
+     * @param student  Estudiante elegido para obtener la información
      */
     public static void ClassesByStudent(ArrayList<Subject> subjects, Student student) {
         int count = 0;

@@ -23,7 +23,7 @@ public class SubjectController {
 
     /**
      * @param subjects Lista de materias
-     * @param choice Opción elegida por el usuario de la materia que eligió
+     * @param choice   Opción elegida por el usuario de la materia que eligió
      */
     public static void infoClass(ArrayList<Subject> subjects, int choice) {
 
@@ -45,8 +45,8 @@ public class SubjectController {
     /**
      * @param teacherFullTimes Lista de profesores full time
      * @param teacherPartTimes Lista de profesores part time
-     * @param students Lista de estudiantes
-     * @param sc Método Scanner
+     * @param students         Lista de estudiantes
+     * @param sc               Método Scanner
      * @return La nueva materia creada.
      */
     public Subject createClass(ArrayList<TeacherFullTime> teacherFullTimes, ArrayList<TeacherPartTime> teacherPartTimes,
@@ -70,8 +70,8 @@ public class SubjectController {
     }
 
     /**
-     * @param id Identifiacador único del estudiante
-     * @param sList Lista de estudiantes
+     * @param id     Identifiacador único del estudiante
+     * @param sList  Lista de estudiantes
      * @param suList Lista de materias
      * @return La lista de las materias vistas por el estudiante
      */

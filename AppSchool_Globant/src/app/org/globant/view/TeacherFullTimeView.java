@@ -2,7 +2,6 @@ package app.org.globant.view;
 
 import java.util.ArrayList;
 
-
 import app.org.globant.controller.TeacherFTController;
 
 import app.org.globant.model.TeacherFullTime;

@@ -10,9 +10,9 @@ import app.org.globant.view.UniversityView;
 public class Main {
 
     public static void main(String[] args) {
-        University model = new University();
-        UniversityView view = new UniversityView();
-        UniversityController controller = new UniversityController(model, view);
+        University model = University.getInstance();
+        UniversityView view = UniversityView.getInstance();
+        UniversityController controller = UniversityController.getInstance(model, view);
 
         Person teacherFullTime = new TeacherFullTime("Ricardo", 3);
         Person teacherFullTime1 = new TeacherFullTime("Eduardo", 4);
