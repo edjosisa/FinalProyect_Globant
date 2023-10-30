@@ -64,12 +64,12 @@ public class UniversityController {
                     do {
                         view.showSubMenu();
                         int choice1 = getInput();
-                        if (choice1 <= model.getSuList().size()) {
+                        if (choice1 <= model.getSuList().size() && choice1 > 0) {
                             view.getSubjectView().showInfoClass(model.getSuList(), choice1);
                             condition = true;
                         } else {
                             System.out.println("Invalid range. Please enter a valid option.");
-                            condition = false;
+
                         }
 
                     } while (!condition);

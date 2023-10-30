@@ -62,28 +62,38 @@ public class StudentController {
     public static void choiceStudents(ArrayList<Student> students, Subject subject, Scanner sc) {
         int count = 0;
         boolean condition = false;
-        System.out.println("Existing Student");
+        ArrayList<Student> newStudents = new ArrayList<>();
         for (Student student : students) {
             count++;
             System.out.println(count + ". " + student.getName());
         }
-
         do {
+
             System.out.println("Choice the Student");
             int choice = sc.nextInt();
             sc.nextLine();
-            Student student = students.get(choice - 1);
-            subject.addStudent(student);
-            System.out.println("Do you want to add other student?(Y/n)");
-            String option = sc.nextLine().toLowerCase().replace("yes", "y").replace("no", "n");
+            if (choice <= students.size() && choice > 0) {
+                Student student = students.get(choice - 1);
+                if (!newStudents.contains(student)) {
+                    subject.addStudent(student);
+                    newStudents.add(student);
+                } else {
+                    System.out.println("This student has already been selected.");
+                }
 
-            if (option.equals("y")) {
-                condition = false;
+                System.out.println("Do you want to add other student?(Y/n)");
+                String option = sc.nextLine().toLowerCase().replace("yes", "y").replace("no", "n");
+
+                if (!option.equals("y")) {
+                    condition = true;
+                }
+
             } else {
-                condition = true;
-            }
+                System.out.println("Invalid range. Please enter a valid option.");
 
+            }
         } while (!condition);
+
     }
 
     /**

@@ -24,22 +24,29 @@ public class TeacherPTController {
 
     /**
      * @param teacherPartTimes Lista de profesores part time.
-     * @param subject materia donde se agrega el nuevo profesor
-     * @param sc Método Scanner
+     * @param subject          materia donde se agrega el nuevo profesor
+     * @param sc               Método Scanner
      */
     public static void choiceTeacherPT(ArrayList<TeacherPartTime> teacherPartTimes,
             Subject subject, Scanner sc) {
 
-        System.out.println("Existing teacher");
+        boolean condition = false;
+        do {
+            System.out.println("\nTeacher Part Time:");
+            findTeachersPT(teacherPartTimes);
 
-        System.out.println("\nTeacher Part Time");
-        findTeachersPT(teacherPartTimes);
+            System.out.println("Choice the number:");
+            int choiceTeacher = sc.nextInt();
+            sc.nextLine();
 
-        System.out.println("Choice the number:");
-        int choiceTeacher = sc.nextInt();
-        sc.nextLine();
-        TeacherPartTime teacherPartTime = teacherPartTimes.get(choiceTeacher - 1);
-        subject.setTeacherPartTime(teacherPartTime);
+            if (choiceTeacher <= teacherPartTimes.size() && choiceTeacher > 0) {
+                TeacherPartTime teacherPartTime = teacherPartTimes.get(choiceTeacher - 1);
+                subject.setTeacherPartTime(teacherPartTime);
+                condition = true;
+            } else {
+                System.out.println("Invalid range. Please enter a valid option.");
+            }
+        } while (!condition);
 
     }
 

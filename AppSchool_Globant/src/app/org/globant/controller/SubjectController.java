@@ -51,19 +51,26 @@ public class SubjectController {
      */
     public Subject createClass(ArrayList<TeacherFullTime> teacherFullTimes, ArrayList<TeacherPartTime> teacherPartTimes,
             ArrayList<Student> students, Scanner sc) {
-
+        boolean condition = false;
         System.out.println("Enter class name: ");
         String name = sc.nextLine();
         System.out.println("Enter classroom: ");
         String classroom = sc.nextLine();
         Subject newClass = new Subject(name, classroom);
-        System.out.println("Choice type Teacher(part time or full time): ");
-        String typeTeacher = sc.nextLine().toLowerCase().replace(" ", "");
-        if (typeTeacher.equals("fulltime")) {
-            TeacherFTController.choiceTeacherFT(teacherFullTimes, newClass, sc);
-        } else {
-            TeacherPTController.choiceTeacherPT(teacherPartTimes, newClass, sc);
-        }
+        do {
+            System.out.println("Choice type Teacher(part time or full time): ");
+            String typeTeacher = sc.nextLine().toLowerCase().replace(" ", "");
+            if (typeTeacher.equals("fulltime")) {
+                TeacherFTController.choiceTeacherFT(teacherFullTimes, newClass, sc);
+                condition = true;
+            } else if (typeTeacher.equals("parttime")) {
+                TeacherPTController.choiceTeacherPT(teacherPartTimes, newClass, sc);
+                condition = true;
+            } else {
+                System.out.println("Invalid teacher type. Please enter part time or full time.");
+            }
+        } while (!condition);
+
         StudentController.choiceStudents(students, newClass, sc);
 
         return newClass;

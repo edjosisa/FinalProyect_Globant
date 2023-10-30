@@ -23,18 +23,26 @@ public class TeacherFTController {
 
     /**
      * @param teacherFullTimes Lista de profesores full time
-     * @param subject materia donde se agrega el nuevo profesor
-     * @param sc Método Scanner
+     * @param subject          materia donde se agrega el nuevo profesor
+     * @param sc               Método Scanner
      */
     public static void choiceTeacherFT(ArrayList<TeacherFullTime> teacherFullTimes,
             Subject subject, Scanner sc) {
-
-        findTeachersFT(teacherFullTimes);
-        System.out.println("Choice the number:");
-        int choiceTeacher = sc.nextInt();
-        sc.nextLine();
-        TeacherFullTime teacherFullTime = teacherFullTimes.get(choiceTeacher - 1);
-        subject.setTeacherFullTime(teacherFullTime);
+        boolean condition = false;
+        do {
+            System.out.println("\nTeachers Full Time:");
+            findTeachersFT(teacherFullTimes);
+            System.out.println("Choice the number:");
+            int choiceTeacher = sc.nextInt();
+            sc.nextLine();
+            if (choiceTeacher <= teacherFullTimes.size() && choiceTeacher > 0) {
+                TeacherFullTime teacherFullTime = teacherFullTimes.get(choiceTeacher - 1);
+                subject.setTeacherFullTime(teacherFullTime);
+                condition = true;
+            } else {
+                System.out.println("Invalid range. Please enter a valid option.");
+            }
+        } while (!condition);
 
     }
 }
